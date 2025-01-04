@@ -80,6 +80,13 @@
                 <button id="sell-button">Sell</button>
             </div>
         </div>
+
+        <!-- Link to invoice page -->
+        <div class="form-group">
+            <a href="invoice.html" id="invoice-link" style="display: none;">
+                <button>Proceed to Invoice</button>
+            </a>
+        </div>
     </div>
 
     <script>
@@ -114,6 +121,26 @@
             const quantity = document.getElementById('quantity').value;
             if (quantity) {
                 alert('Selling ' + quantity + ' units.');
+
+                // Store product details in localStorage
+                const productDetails = {
+                    productName: document.getElementById('product-name').textContent,
+                    description: document.getElementById('description').textContent,
+                    productImage: document.getElementById('product-image').src,
+                    category: document.getElementById('category').textContent,
+                    modelNumber: document.getElementById('model-number').textContent,
+                    serialNumber: document.getElementById('serial-number').textContent,
+                    stockLevel: document.getElementById('stock-level').textContent,
+                    reorderPoint: document.getElementById('reorder-point').textContent,
+                    quantitySold: quantity,
+                    unitPrice: 20,  // Example price
+                    totalPrice: 20 * quantity  // Example total price
+                };
+
+                localStorage.setItem('productDetails', JSON.stringify(productDetails));
+
+                // Show the link to proceed to the invoice
+                document.getElementById('invoice-link').style.display = 'block';
             } else {
                 alert('Please enter a quantity.');
             }
