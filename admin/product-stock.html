@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Stock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Product Stock</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="dashboard-title text-center mb-4">Product Stock</h1>
+
+        <!-- Search Bar -->
+        <div class="mb-4">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search for a product..." onkeyup="filterStock()">
+        </div>
+
+        <!-- Product List -->
+        <div id="productList" class="list-group">
+            <!-- Dynamically populated list of products -->
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // Sample product data
+        const products = [
+            { name: "Product 1", stock: 10 },
+            { name: "Product 2", stock: 5 },
+            { name: "Product 3", stock: 0 },
+            { name: "Product 4", stock: 20 },
+            { name: "Product 5", stock: 8 }
+        ];
+
+        // Function to display products
+        function displayProducts(filteredProducts) {
+            const productList = document.getElementById("productList");
+            productList.innerHTML = ""; // Clear previous list
+            filteredProducts.forEach(product => {
+                const productItem = document.createElement("a");
+                productItem.href = "#";
+                productItem.classList.add("list-group-item", "list-group-item-action");
+                productItem.innerHTML = `${product.name} - Stock: ${product.stock}`;
+                productList.appendChild(productItem);
+            });
+        }
+
+        // Filter products based on search query
+        function filterStock() {
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchInput));
+            displayProducts(filteredProducts);
+        }
+
+        // Initially display all products
+        displayProducts(products);
+    </script>
+</body>
+</html>
