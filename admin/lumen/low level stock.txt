@@ -1,0 +1,12 @@
+const products = [
+  { name: "Cisco ISR 1101", stock: 500, reorderPoint: 150 },
+  { name: "HP 5406zl", stock: 300, reorderPoint: 100 },
+  { name: "DOCSIS 3.1 Cable Modem", stock: 200, reorderPoint: 50 },
+  { name: "Cellular Duplexer Rx", stock: 200, reorderPoint: 50 },
+  { name: "SBB100 Splitter Trough Block", stock: 400, reorderPoint: 75 }
+];
+products.forEach(product => {
+  if (product.stock <= product.reorderPoint) {
+    alert(Low Stock Alert!\nProduct: ${product.name}\nCurrent Stock: ${product.stock}\nReorder Point: ${product.reorderPoint});
+  }
+});

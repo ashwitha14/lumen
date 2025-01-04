@@ -1,0 +1,30 @@
+// Product data with order statuses and dates
+const products = [
+  { name: "Cisco ISR 1101", orderDate: "2023-01-15", status: "Delivered" },
+  { name: "HP 5406zl", orderDate: "2023-11-05", status: "Delivered" },
+  { name: "DOCSIS 3.1 Cable Modem", orderDate: "2023-08-06", status: "Pending" },
+  { name: "Cellular Duplexer Rx", orderDate: "2023-05-16", status: "Pending" },
+  { name: "SBB100 Splitter Trough Block", orderDate: "2023-10-06", status: "Delivered" }
+];
+
+// Helper function to check if a date is overdue
+function isOverdue(orderDate) {
+  const dueDate = new Date(orderDate);
+  const today = new Date();
+  return dueDate < today;
+}
+
+// Loop through each product
+products.forEach(product => {
+
+  // First, check if the product is "Pending"
+  if (product.status === "Pending") {
+    
+    // Check if the order is overdue
+    if (isOverdue(product.orderDate)) {
+      alert(Overdue Alert!\nProduct: ${product.name}\nOrder Date: ${product.orderDate}\nStatus: ${product.status});
+    } else {
+      alert(Pending Alert!\nProduct: ${product.name}\nOrder Date: ${product.orderDate}\nStatus: ${product.status});
+    }
+  }
+});
