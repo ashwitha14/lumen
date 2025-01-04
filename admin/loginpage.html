@@ -126,13 +126,12 @@
             <a href="homepage.html">Home</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
-            
         </nav>
     </header>
     <div class="main-content">
         <div class="login-container">
             <h2>Login</h2>
-            <form action="login.php" method="POST">
+            <form id="loginForm">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
@@ -152,9 +151,35 @@
                 <button type="submit">Login</button>
             </form>
             <div class="links">
-               
+                <!-- Links can be added here, such as 'Forgot Password?' or 'Create Account' -->
             </div>
         </div>
     </div>
+
+    <script>
+        // JavaScript to handle form submission and redirection
+        document.getElementById('loginForm').onsubmit = function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Get form data
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var role = document.getElementById('role').value;
+
+            // Basic validation to check if all fields are filled
+            if (email && password && role) {
+                // Redirect based on selected role
+                if (role === 'manager') {
+                    window.location.href = 'manager.html'; // Redirect to Manager Dashboard
+                } else if (role === 'admin') {
+                    window.location.href = 'admin_dashboard.html'; // Redirect to Admin Dashboard
+                } else if (role === 'staff') {
+                    window.location.href = 'staff.html'; // Redirect to Staff Dashboard
+                }
+            } else {
+                alert('Please fill in all the fields.');
+            }
+        };
+    </script>
 </body>
 </html>
