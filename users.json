@@ -1,0 +1,53 @@
+[{
+  "_id": {
+    "$oid": "6778e323db0543823818cb0f"
+  },
+  "UserId": 1,
+  "UserName": "rthomas",
+  "Password": "adminpass",
+  "First Name": "Rachel",
+  "Last Name": "Thomas",
+  "Type": "Admin",
+  "Phone": 1234987650,
+  "Email": "abc@mail.com"
+},{
+  "_id": {
+    "$oid": "6778e323db0543823818cb10"
+  },
+  "UserId": 3,
+  "UserName": "pnelson",
+  "Password": "staffpass",
+  "First Name": "Peter",
+  "Last Name": "Nelson",
+  "Type": "Staff",
+  "Phone": {
+    "$numberLong": "7654987124"
+  },
+  "Email": "mmm@mail.com"
+},{
+  "_id": {
+    "$oid": "6778e323db0543823818cb11"
+  },
+  "UserId": "",
+  "UserName": "",
+  "Password": "",
+  "First Name": "",
+  "Last Name": "",
+  "Type": "",
+  "Phone": "",
+  "Email": ""
+},{
+  "_id": {
+    "$oid": "6778e323db0543823818cb12"
+  },
+  "UserId": 2,
+  "UserName": "ajackson",
+  "Password": "managerpass",
+  "First Name": "Alex",
+  "Last Name": "Jackson",
+  "Type": "Manager",
+  "Phone": {
+    "$numberLong": "7894987650"
+  },
+  "Email": "non@mail.com"
+}]
